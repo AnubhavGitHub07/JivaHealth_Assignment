@@ -6,9 +6,9 @@ import {
 
 const Header = () => {
   return (
-    <header className="h-20 bg-white border-b flex items-center justify-between px-8">
+    <header className="h-20 bg-white border-b border-slate-200 px-4 md:px-6 xl:px-8 flex items-center justify-between gap-4">
       {/* Search */}
-      <div className="relative w-full max-w-xl">
+    <div className="relative hidden md:block w-full max-w-xl">
         <Search
           className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
           size={18}
@@ -17,7 +17,7 @@ const Header = () => {
         <input
           type="text"
           placeholder="Search"
-          className="w-full h-11 rounded-xl border border-slate-200 pl-10 pr-4 outline-none focus:ring-2 focus:ring-emerald-500"
+         className="w-full h-11 rounded-2xl border border-slate-200 pl-10 pr-4 outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
