@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import UserManagement from "../pages/userManagement";
-import UserDetails from "../pages/userDetails";
-import NotFound from "../pages/notFound";
+import UserManagement from "../pages/UserManagement";
+import UserDetails from "../pages/UserDetails";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
     {
