@@ -1,4 +1,5 @@
-import type { User} from "../../types/user.types";
+import { useNavigate } from "react-router-dom";
+import type { User } from "../../types/user.types";
 import {
   Badge,
 } from "../ui/badge";
@@ -23,11 +24,13 @@ interface UserCardProps {
 const UserCard = ({
   user,
 }: UserCardProps) => {
+  const navigate = useNavigate();
+
   return (
-   <Card className="rounded-[28px] shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300">
+    <Card className="rounded-[28px] shadow-sm border border-slate-200 hover:shadow-md transition-all duration-300">
       <CardContent className="p-6">
         <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6">
-          
+
           {/* Left */}
           <div className="flex items-start gap-5">
             {/* Avatar */}
@@ -84,14 +87,14 @@ const UserCard = ({
 
           {/* Right */}
           <div className="flex flex-col lg:flex-row gap-6 lg:items-center">
-            
+
             {/* Appointments */}
             <div>
               <p className="text-sm text-muted-foreground">
                 Appointments
               </p>
 
-            <h3 className="text-3xl md:text-4xl font-bold text-blue-600 mt-2 tracking-tight">
+              <h3 className="text-3xl md:text-4xl font-bold text-blue-600 mt-2 tracking-tight">
                 {user.appointmentsCount}
               </h3>
             </div>
@@ -104,7 +107,10 @@ const UserCard = ({
 
               <Button
                 variant="outline"
-                className="rounded-xl"
+                className="rounded-xl cursor-pointer hover:shadow-md"
+                onClick={() =>
+                  navigate(`/users/${user.id}`)
+                }
               >
                 <Eye size={16} className="mr-2" />
                 View

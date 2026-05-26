@@ -13,59 +13,88 @@ import {
     Settings,
 } from "lucide-react";
 
+import {
+    useLocation,
+    useNavigate,
+} from "react-router-dom";
+
 const menuItems = [
     {
         label: "Dashboard",
         icon: LayoutDashboard,
+        path: "/dashboard",
     },
     {
         label: "Organization",
         icon: Building2,
+        path: "/organization",
     },
     {
         label: "User Management",
         icon: Users,
-        active: true,
+        path: "/",
     },
     {
         label: "Services",
         icon: BriefcaseMedical,
+        path: "/services",
     },
     {
         label: "Consultation",
         icon: Stethoscope,
+        path: "/consultation",
     },
     {
         label: "Lab Test Booking",
         icon: FlaskConical,
+        path: "/lab-test-booking",
     },
     {
         label: "Medicine Orders",
         icon: Pill,
+        path: "/medicine-orders",
     },
     {
         label: "Ambulance Booking",
         icon: Ambulance,
+        path: "/ambulance-booking",
     },
     {
         label: "Vendor & Partners",
         icon: Handshake,
+        path: "/vendor-partners",
     },
     {
         label: "Report",
         icon: FileText,
+        path: "/report",
     },
     {
         label: "User Access",
         icon: ShieldCheck,
+        path: "/user-access",
     },
     {
         label: "Settings",
         icon: Settings,
+        path: "/settings",
     },
 ];
 
 const Sidebar = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const isActive = (path: string) => {
+        if (path === "/") {
+            return (
+                location.pathname === "/" ||
+                location.pathname.startsWith("/users")
+            );
+        }
+        return location.pathname.startsWith(path);
+    };
+
     return (
         <aside className="hidden lg:flex w-[270px] bg-white border-r border-slate-200 min-h-screen flex-col justify-between">
             <div>
@@ -82,16 +111,20 @@ const Sidebar = () => {
                 <nav className="p-4 space-y-2">
                     {menuItems.map((item) => {
                         const Icon = item.icon;
+                        const active = isActive(item.path);
 
                         return (
                             <button
                                 key={item.label}
+                                onClick={() =>
+                                    navigate(item.path)
+                                }
                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all text-sm font-medium
-
-${item.active
-                                        ? "bg-emerald-100 text-emerald-700 shadow-sm"
-                                        : "text-slate-600 hover:bg-slate-100"
-                                    }
+${
+    active
+        ? "bg-emerald-100 text-emerald-700 shadow-sm"
+        : "text-slate-600 hover:bg-slate-100"
+}
 `}
                             >
                                 <Icon size={18} />

@@ -20,6 +20,22 @@ export interface FamilyMember {
   phone: string;
 }
 
+export interface Order {
+  id: number;
+  title: string;
+  date: string;
+  amount: number;
+  status: "Delivered" | "Pending";
+}
+
+export interface Payment {
+  id: number;
+  title: string;
+  date: string;
+  amount: number;
+  status: "Completed";
+}
+
 export interface User {
   id: number;
   name: string;
@@ -36,4 +52,6 @@ export interface User {
   isPrime: boolean;
   addresses: Address[];
   familyMembers: FamilyMember[];
+  orders: Order[];
+  payments: Payment[];
 }

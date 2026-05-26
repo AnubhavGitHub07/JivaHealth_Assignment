@@ -35,5 +35,39 @@ export const users: User[] = [
         phone: "+91 9000000000",
       },
     ],
+
+    orders: [
+  {
+    id: 1,
+    title: "Paracetamol 500mg",
+    date: "2026-03-28",
+    amount: 250,
+    status: "Delivered",
+  },
+  {
+    id: 2,
+    title: "Vitamin Capsules",
+    date: "2026-04-01",
+    amount: 400,
+    status: "Pending",
+  },
+],
+
+payments: [
+  {
+    id: 1,
+    title: "Consultation Fee",
+    date: "2026-03-28",
+    amount: 150,
+    status: "Completed",
+  },
+  {
+    id: 2,
+    title: "Lab Test",
+    date: "2026-04-02",
+    amount: 800,
+    status: "Completed",
+  },
+],
   },
 ];

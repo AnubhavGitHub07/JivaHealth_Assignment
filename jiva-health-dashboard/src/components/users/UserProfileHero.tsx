@@ -1,17 +1,28 @@
 import type { User } from "../../types/user.types";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface UserProfileHeroProps {
   user: User;
 }
 
+
 const UserProfileHero = ({
   user,
 }: UserProfileHeroProps) => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white rounded-[32px] border border-slate-200 shadow-sm p-6 md:p-8">
-      
+      <button
+        onClick={() => navigate("/")}
+        className="flex items-center gap-2 text-slate-500 hover:text-slate-900 transition mb-6"
+      >
+        <ArrowLeft size={18} />
+
+        Back to User Management
+      </button>
       <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-8">
         
         {/* Left */}
