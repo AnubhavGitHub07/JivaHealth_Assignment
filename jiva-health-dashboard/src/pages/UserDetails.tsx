@@ -44,7 +44,7 @@ const UserDetails = () => {
 
   return (
     <DashboardLayout>
-      <div className="space-y-8">
+      <div className="space-y-6">
         {/* Hero */}
         <UserProfileHero user={user} />
 

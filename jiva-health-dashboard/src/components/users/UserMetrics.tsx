@@ -1,5 +1,5 @@
 import type { User } from "../../types/user.types";
-import { Card, CardContent } from "../ui/card";
+import { CalendarCheck, PhoneCall, Users, Wallet } from "lucide-react";
 
 interface UserMetricsProps {
   user: User;
@@ -12,45 +12,61 @@ const UserMetrics = ({
     {
       title: "Total Orders",
       value: user.totalOrders,
-      color: "text-emerald-600",
+      icon: CalendarCheck,
+      iconBg: "bg-emerald-100",
+      iconColor: "text-emerald-600",
+      valueColor: "text-slate-900",
     },
     {
-      title: "Appointments",
+      title: "Total Booking & Appointment",
       value: user.appointmentsCount,
-      color: "text-blue-600",
+      icon: PhoneCall,
+      iconBg: "bg-emerald-100",
+      iconColor: "text-emerald-600",
+      valueColor: "text-emerald-600",
     },
     {
-      title: "Family Members",
+      title: "Total Family Member",
       value: user.familyMembers.length,
-      color: "text-orange-500",
+      icon: Users,
+      iconBg: "bg-slate-100",
+      iconColor: "text-slate-500",
+      valueColor: "text-slate-900",
     },
     {
       title: "Total Spent",
-      value: `₹${user.totalSpent}`,
-      color: "text-violet-600",
+      value: `₹${user.totalSpent.toFixed(2)}`,
+      icon: Wallet,
+      iconBg: "bg-emerald-100",
+      iconColor: "text-emerald-600",
+      valueColor: "text-slate-900",
     },
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-      {metrics.map((metric) => (
-        <Card
-          key={metric.title}
-          className="rounded-[28px] border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300"
-        >
-          <CardContent className="p-6">
-            <p className="text-sm text-slate-500">
-              {metric.title}
-            </p>
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      {metrics.map((metric) => {
+        const Icon = metric.icon;
+        return (
+          <div
+            key={metric.title}
+            className="bg-white rounded-xl border border-slate-200 p-5 flex items-start gap-3"
+          >
+            <div className="min-w-0 flex-1 overflow-hidden">
+              <p className="text-sm text-slate-500 break-words">
+                {metric.title}
+              </p>
+              <h2 className={`text-3xl font-bold mt-2 tracking-tight ${metric.valueColor}`}>
+                {metric.value}
+              </h2>
+            </div>
 
-            <h2
-              className={`text-3xl md:text-4xl font-bold mt-4 tracking-tight ${metric.color}`}
-            >
-              {metric.value}
-            </h2>
-          </CardContent>
-        </Card>
-      ))}
+            <div className={`h-10 w-10 min-w-[40px] rounded-lg ${metric.iconBg} flex items-center justify-center`}>
+              <Icon size={20} className={metric.iconColor} />
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

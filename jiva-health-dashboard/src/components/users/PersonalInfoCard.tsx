@@ -1,8 +1,12 @@
 import type { User } from "../../types/user.types";
 import {
-  Card,
-  CardContent,
-} from "../ui/card";
+  Mail,
+  Phone,
+  Calendar,
+  User as UserIcon,
+  Heart,
+  Pencil,
+} from "lucide-react";
 
 interface PersonalInfoCardProps {
   user: User;
@@ -13,52 +17,71 @@ const PersonalInfoCard = ({
 }: PersonalInfoCardProps) => {
   const infoItems = [
     {
-      label: "Email",
+      label: "Email:",
       value: user.email,
+      icon: Mail,
+      iconColor: "text-emerald-600",
     },
     {
-      label: "Phone",
+      label: "Phone:",
       value: user.phone,
+      icon: Phone,
+      iconColor: "text-emerald-600",
     },
     {
-      label: "Joined Date",
+      label: "Date of Birth:",
       value: user.joinedDate,
+      icon: Calendar,
+      iconColor: "text-emerald-600",
     },
     {
-      label: "Last Active",
-      value: user.lastActive,
+      label: "Gender:",
+      value: "Female",
+      icon: UserIcon,
+      iconColor: "text-slate-500",
+    },
+    {
+      label: "Blood Group:",
+      value: "O+",
+      icon: Heart,
+      iconColor: "text-emerald-600",
     },
   ];
 
   return (
-    <Card className="rounded-[32px] border border-slate-200 shadow-sm">
-      <CardContent className="p-8">
-        
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Personal Information
-          </h2>
-        </div>
+    <div className="bg-white rounded-xl border border-slate-200 p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-lg font-semibold text-slate-900">
+          Personal Information
+        </h2>
+        <button className="flex items-center gap-1.5 text-sm text-slate-600 hover:text-slate-900 transition">
+          <Pencil size={14} />
+          Edit
+        </button>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          
-          {infoItems.map((item) => (
+      {/* Info rows */}
+      <div className="space-y-4">
+        {infoItems.map((item) => {
+          const Icon = item.icon;
+          return (
             <div
               key={item.label}
-              className="space-y-2"
+              className="flex items-center gap-3"
             >
-              <p className="text-sm text-slate-500">
+              <Icon size={16} className={item.iconColor} />
+              <span className="text-sm text-emerald-600 font-medium">
                 {item.label}
-              </p>
-
-              <h3 className="font-semibold text-lg">
+              </span>
+              <span className="text-sm text-slate-900 font-medium">
                 {item.value}
-              </h3>
+              </span>
             </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+          );
+        })}
+      </div>
+    </div>
   );
 };
 
