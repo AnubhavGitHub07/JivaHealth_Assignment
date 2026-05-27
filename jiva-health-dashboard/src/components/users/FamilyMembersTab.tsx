@@ -78,9 +78,9 @@ const FamilyMembersTab = ({ user }: FamilyMembersTabProps) => {
       </div>
 
       {/* Member list */}
-      <div className="space-y-0 divide-y divide-slate-100">
+      <div className="flex flex-col gap-4">
         {user.familyMembers.length === 0 ? (
-          <div className="py-8 text-center text-slate-500 text-sm">
+          <div className="py-8 text-center text-slate-500 text-sm bg-[#F8FAFC] border border-[#F1F3F5] rounded-[16px]">
             No family members added yet. Click "+ Add Member" to get started.
           </div>
         ) : (
@@ -95,43 +95,44 @@ const FamilyMembersTab = ({ user }: FamilyMembersTabProps) => {
             return (
               <div
                 key={member.id}
-                className="flex items-start justify-between gap-4 py-5 first:pt-0 last:pb-0"
+                className="flex items-start justify-between gap-4 bg-[#F8FAFC] border border-[#F1F3F5] rounded-[16px] p-4 md:p-5 transition-all duration-300 hover:shadow-sm"
               >
                 {/* Left: Avatar + Details */}
                 <div className="flex items-start gap-4">
-                  <div className="h-11 w-11 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-semibold text-sm shrink-0">
+                  <div className="h-11 w-11 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 flex items-center justify-center font-semibold text-sm shrink-0 shadow-2xs">
                     {initials}
                   </div>
 
                   <div className="space-y-1.5">
-                    <h3 className="text-base font-semibold text-slate-900">
-                      {member.name}
-                    </h3>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-base font-semibold text-slate-900 leading-tight">
+                        {member.name}
+                      </h3>
+                      <Badge
+                        variant="secondary"
+                        className="text-[10px] font-semibold bg-slate-50 border border-slate-200 text-slate-600 hover:bg-slate-50 rounded px-2 py-0.5"
+                      >
+                        {member.relationship}
+                      </Badge>
+                    </div>
 
-                    <Badge
-                      variant="secondary"
-                      className="text-xs font-medium bg-slate-100 text-slate-600 hover:bg-slate-100 rounded-md px-2.5 py-0.5"
-                    >
-                      {member.relationship}
-                    </Badge>
-
-                    <div className="flex items-center gap-2 text-sm text-slate-600">
-                      <Phone size={14} className="text-slate-400" />
+                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                      <Phone size={13} className="text-slate-400" />
                       {member.phone}
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm text-slate-500">
-                      <Calendar size={14} className="text-slate-400" />
+                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                      <Calendar size={13} className="text-slate-400" />
                       {member.dob}
                     </div>
                   </div>
                 </div>
 
                 {/* Right: Actions */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0">
                   <button
                     onClick={() => handleDelete(member.id)}
-                    className="h-9 w-9 rounded-lg border border-slate-200 flex items-center justify-center hover:bg-red-50 hover:border-red-200 transition text-slate-400 hover:text-red-500 cursor-pointer"
+                    className="h-9 w-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center hover:bg-rose-50 hover:border-rose-100 hover:text-rose-600 transition text-slate-400 cursor-pointer shadow-2xs"
                     title="Remove Member"
                   >
                     <Trash2 size={14} />

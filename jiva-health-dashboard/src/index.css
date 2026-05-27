@@ -123,6 +123,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+  }
   body {
     font-family: 'Inter', sans-serif;
     @apply bg-background text-foreground;

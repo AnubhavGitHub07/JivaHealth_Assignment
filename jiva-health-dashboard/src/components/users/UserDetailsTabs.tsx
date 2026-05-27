@@ -29,10 +29,10 @@ const UserDetailsTabs = ({
       defaultValue="overview"
       className="space-y-6"
     >
-      <TabsList className="bg-transparent border-b border-slate-200 rounded-none p-0 h-auto flex gap-8 w-full justify-start">
+      <TabsList className="bg-transparent border-b border-slate-200 rounded-none p-0 h-auto flex gap-8 w-full justify-start overflow-x-auto whitespace-nowrap pb-0.5 scrollbar-none">
         <TabsTrigger
           value="overview"
-          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer"
+          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-b-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer shrink-0"
         >
           <UserIcon size={16} />
           Overview
@@ -40,7 +40,7 @@ const UserDetailsTabs = ({
 
         <TabsTrigger
           value="orders"
-          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer"
+          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-b-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer shrink-0"
         >
           <CalendarCheck size={16} />
           Orders & Bookings
@@ -48,7 +48,7 @@ const UserDetailsTabs = ({
 
         <TabsTrigger
           value="payments"
-          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer"
+          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-b-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer shrink-0"
         >
           <CreditCard size={16} />
           Payments
@@ -56,7 +56,7 @@ const UserDetailsTabs = ({
 
         <TabsTrigger
           value="family"
-          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer"
+          className="rounded-none border-b-2 border-transparent px-1 pb-3 pt-3 -mb-px text-sm font-medium text-slate-500 transition-all data-active:border-b-emerald-600 data-active:text-emerald-600 data-active:bg-transparent data-active:shadow-none hover:text-slate-700 flex items-center gap-2 cursor-pointer shrink-0"
         >
           <Users size={16} />
           Family Members

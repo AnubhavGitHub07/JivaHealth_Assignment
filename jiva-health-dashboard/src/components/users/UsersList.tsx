@@ -1,9 +1,11 @@
-import { useUserStore } from "../../store/userStore";
+import type { User } from "../../types/user.types";
 import UserCard from "./UsersCard";
 
-const UsersList = () => {
-  const users = useUserStore((state) => state.users);
+interface UsersListProps {
+  users: User[];
+}
 
+const UsersList = ({ users }: UsersListProps) => {
   return (
     <div className="space-y-6">
       {users.map((user) => (
