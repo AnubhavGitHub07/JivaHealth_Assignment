@@ -15,6 +15,9 @@ export const users: User[] = [
     totalOrders: 8,
     totalSpent: 2400,
     isPrime: true,
+    dob: "1995-08-25",
+    gender: "Male",
+    bloodGroup: "B+",
     addresses: [
       {
         id: 1,
@@ -24,6 +27,15 @@ export const users: User[] = [
         state: "Uttar Pradesh",
         pincode: "201001",
         isDefault: true,
+      },
+      {
+        id: 2,
+        type: "Work",
+        addressLine: "456 Tech Park, Sector 62",
+        city: "Noida",
+        state: "Uttar Pradesh",
+        pincode: "201301",
+        isDefault: false,
       },
     ],
     familyMembers: [
@@ -89,7 +101,29 @@ export const users: User[] = [
     totalOrders: 2,
     totalSpent: 600,
     isPrime: false,
-    addresses: [],
+    dob: "1992-12-10",
+    gender: "Male",
+    bloodGroup: "A+",
+    addresses: [
+      {
+        id: 1,
+        type: "Home",
+        addressLine: "Flat 402, Royal Residency, Indiranagar",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560038",
+        isDefault: true,
+      },
+      {
+        id: 2,
+        type: "Work",
+        addressLine: "Block C, Embassy Tech Village, Outer Ring Road",
+        city: "Bengaluru",
+        state: "Karnataka",
+        pincode: "560103",
+        isDefault: false,
+      },
+    ],
     familyMembers: [
       {
         id: 1,
@@ -146,7 +180,29 @@ export const users: User[] = [
     totalOrders: 5,
     totalSpent: 1500,
     isPrime: true,
-    addresses: [],
+    dob: "1998-04-18",
+    gender: "Female",
+    bloodGroup: "O-",
+    addresses: [
+      {
+        id: 1,
+        type: "Home",
+        addressLine: "Flat 101, Sunshine Heights, Malad West",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pincode: "400064",
+        isDefault: true,
+      },
+      {
+        id: 2,
+        type: "Work",
+        addressLine: "Nesco IT Park, Western Express Highway, Goregaon",
+        city: "Mumbai",
+        state: "Maharashtra",
+        pincode: "400063",
+        isDefault: false,
+      },
+    ],
     familyMembers: [
       {
         id: 1,

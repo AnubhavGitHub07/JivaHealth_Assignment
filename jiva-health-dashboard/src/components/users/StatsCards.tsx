@@ -17,56 +17,56 @@ const StatsCards = () => {
       title: "Total User",
       value: totalUsers,
       colorClass: "text-slate-900",
-      bgClass: "bg-slate-50 border-slate-100",
-      iconColor: "text-slate-500",
+      bgClass: "bg-blue-50",
+      iconColor: "text-blue-600",
       icon: Users,
     },
     {
       title: "Prime User",
       value: primeUsers,
       colorClass: "text-amber-600",
-      bgClass: "bg-amber-50 border-amber-100",
+      bgClass: "bg-amber-50",
       iconColor: "text-amber-600",
       icon: Crown,
     },
     {
       title: "Non-Prime User",
       value: nonPrimeUsers,
-      colorClass: "text-emerald-600",
-      bgClass: "bg-emerald-50 border-emerald-100",
-      iconColor: "text-emerald-600",
+      colorClass: "text-[#137333]",
+      bgClass: "bg-[#E6F4EA]",
+      iconColor: "text-[#137333]",
       icon: UserCheck,
     },
     {
       title: "Total Family members",
       value: totalFamilyMembers,
-      colorClass: "text-indigo-600",
-      bgClass: "bg-indigo-50 border-indigo-100",
-      iconColor: "text-indigo-600",
+      colorClass: "text-slate-900",
+      bgClass: "bg-[#E6F4EA]",
+      iconColor: "text-[#137333]",
       icon: Heart,
     },
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
       {stats.map((stat) => {
         const IconComponent = stat.icon;
         return (
           <div
             key={stat.title}
-            className="bg-white border border-slate-200/60 rounded-[20px] shadow-[0_2px_12px_rgba(0,0,0,0.015)] p-4 sm:p-5 transition-all duration-300 hover:shadow-[0_6px_24px_rgba(0,0,0,0.03)] hover:border-slate-300"
+            className="bg-white border border-slate-200/80 rounded-2xl p-5 flex items-center justify-between gap-4 shadow-xs"
           >
-            <div className="flex items-center justify-between gap-2">
-              <p className="text-xs sm:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+            <div className="min-w-0">
+              <p className="text-xs font-medium text-slate-400">
                 {stat.title}
               </p>
-              <div className={`p-1.5 rounded-lg border shrink-0 ${stat.bgClass}`}>
-                <IconComponent className={`h-4 w-4 ${stat.iconColor}`} />
-              </div>
+              <h2 className={`text-3xl font-bold mt-1.5 tracking-tight ${stat.colorClass}`}>
+                {stat.value}
+              </h2>
             </div>
-            <h2 className={`text-2xl sm:text-3xl font-bold mt-4 tracking-tight ${stat.colorClass}`}>
-              {stat.value}
-            </h2>
+            <div className={`h-11 w-11 rounded-2xl flex items-center justify-center shrink-0 ${stat.bgClass}`}>
+              <IconComponent className={`h-5 w-5 ${stat.iconColor}`} />
+            </div>
           </div>
         );
       })}

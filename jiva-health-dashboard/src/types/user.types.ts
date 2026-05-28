@@ -54,4 +54,7 @@ export interface User {
   familyMembers: FamilyMember[];
   orders: Order[];
   payments: Payment[];
+  dob: string;
+  gender: string;
+  bloodGroup: string;
 }

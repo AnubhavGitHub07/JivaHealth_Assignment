@@ -57,6 +57,9 @@ export const useUserStore = create<UserStore>((set) => ({
         familyMembers: [],
         orders: [],
         payments: [],
+        dob: newUser.dob,
+        gender: newUser.gender,
+        bloodGroup: newUser.bloodGroup,
       };
       
       return {
